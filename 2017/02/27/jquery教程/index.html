@@ -1,0 +1,1652 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <script>
+    (function(){
+        if(''){
+            if (prompt('请输入密码') !== ''){
+                alert('密码错误');
+                history.back();
+            }
+        }
+    })();
+</script>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: true,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="标签： 编程,前端  超全面！这可能是最全面的 jQuery 知识总结个人建议：学习 jQuery 前先掌握基本的 JavaScrpit 语法，特别是对函数要掌握，jQuery 基本上是使用函数。 jQuery 简介 jQuery 是一个轻量级 JavaScript 库 jQuery 库位于一个 JavaScript 文件中，其中包含了所有的 jQuery 函数，需要通过 标签引入 jQuery">
+<meta name="keywords" content="Config,Programming,JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery 知识总结">
+<meta property="og:url" content="https://sven31316.github.io/2017/02/27/jquery教程/index.html">
+<meta property="og:site_name" content="sven31316">
+<meta property="og:description" content="标签： 编程,前端  超全面！这可能是最全面的 jQuery 知识总结个人建议：学习 jQuery 前先掌握基本的 JavaScrpit 语法，特别是对函数要掌握，jQuery 基本上是使用函数。 jQuery 简介 jQuery 是一个轻量级 JavaScript 库 jQuery 库位于一个 JavaScript 文件中，其中包含了所有的 jQuery 函数，需要通过 标签引入 jQuery">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-01-02T04:44:37.560Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jQuery 知识总结">
+<meta name="twitter:description" content="标签： 编程,前端  超全面！这可能是最全面的 jQuery 知识总结个人建议：学习 jQuery 前先掌握基本的 JavaScrpit 语法，特别是对函数要掌握，jQuery 基本上是使用函数。 jQuery 简介 jQuery 是一个轻量级 JavaScript 库 jQuery 库位于一个 JavaScript 文件中，其中包含了所有的 jQuery 函数，需要通过 标签引入 jQuery">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://sven31316.github.io/2017/02/27/jquery教程/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>jQuery 知识总结 | sven31316</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">sven31316</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">sven31316 blog</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags<span class="badge">17</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories<span class="badge">19</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">8</span></a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+
+  
+
+  <a href="https://github.com/copyer1998" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sven31316.github.io/2017/02/27/jquery教程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="sven31316">
+      <meta itemprop="description" content="this is the power of Anonymous.">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="sven31316">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">jQuery 知识总结
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2017-02-27 09:17:00" itemprop="dateCreated datePublished" datetime="2017-02-27T09:17:00+08:00">2017-02-27</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-01-02 12:44:37" itemprop="dateModified" datetime="2018-01-02T12:44:37+08:00">2018-01-02</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端-js/" itemprop="url" rel="index"><span itemprop="name">前端,js</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">9.9k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">9 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>标签： 编程,前端</p>
+<hr>
+<h1 id="超全面！这可能是最全面的-jQuery-知识总结"><a href="#超全面！这可能是最全面的-jQuery-知识总结" class="headerlink" title="超全面！这可能是最全面的 jQuery 知识总结"></a>超全面！这可能是最全面的 jQuery 知识总结</h1><p>个人建议：学习 jQuery 前先掌握基本的 JavaScrpit 语法，特别是对函数要掌握，jQuery 基本上是使用函数。</p>
+<h1 id="jQuery-简介"><a href="#jQuery-简介" class="headerlink" title="jQuery 简介"></a>jQuery 简介</h1><ul>
+<li>jQuery 是一个轻量级 JavaScript 库</li>
+<li>jQuery 库位于一个 JavaScript 文件中，其中包含了所有的 jQuery 函数，需要通过 <script>标签引入 jQuery 库才能进行使用</li>
+</ul>
+<h1 id="jQuery-库的三种引入来源"><a href="#jQuery-库的三种引入来源" class="headerlink" title="jQuery 库的三种引入来源"></a>jQuery 库的三种引入来源</h1><ul>
+<li><p>本地引入</p>
+<p>共有两个版本的 jQuery 可供下载 <a href="http://jQuery.com：一份是精简过的，另一份是未压缩的（供调试或阅读）">http://jQuery.com：一份是精简过的，另一份是未压缩的（供调试或阅读）</a></p>
+</li>
+<li><p>从 Google 加载 CDN jQuery 核心文件（ 版本可更换 ）</p>
+<blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; src = http:<span class="comment">//ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>从 Microsoft 加载 CDN jQuery 核心文件（ 版本可更换 ）</p>
+<blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; src = http:<span class="comment">//ajax.microsoft.com/ajax/jquery/jquery-1.4.min.js</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<h1 id="jQuery语法"><a href="#jQuery语法" class="headerlink" title="jQuery语法"></a>jQuery语法</h1><p><strong>基础语法：$(selector).action()</strong></p>
+<ul>
+<li>美元符号（$）定义 jQuery</li>
+<li>选择符（selector）“ 查询 ” 和 “ 查找 ” HTML 元素</li>
+<li>jQuery 的 action() 执行对元素的操作</li>
+</ul>
+<p><strong>文档就绪函数</strong></p>
+<ul>
+<li>文档就绪函数，用于在页面加载成功后执行的指定代码</li>
+<li>如果在文档没有完全加载之前就运行函数，操作可能失败</li>
+<li>通常该函数用于替换 window.onload 事件，文档就绪函数的执行效率更高</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; code block&#125;);</span><br></pre></td></tr></table></figure>
+<p>可以简写为:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(function()&#123; code block&#125;);</span><br></pre></td></tr></table></figure>
+<p>jQuery 使用 $ 符号作为 jQuery 的简写</p>
+<p><strong>jQuery 标识符</strong></p>
+<ul>
+<li>使用 jQuery 全名</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jQuery(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;jQuery(<span class="string">"button"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; code block&#125;);&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用 jQuery 简写</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(function()&#123; $(&quot;button&quot;).click(function()&#123; code block &#125;);&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>自定义 jQuery 别名</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var jq = $.noConflict();jq(function()&#123; jq(&quot;button&quot;).click(function()&#123; code block &#125;);&#125;);</span><br></pre></td></tr></table></figure>
+<p>注：因为 javascrpit 某些框架中也使用 $ 作为简写( 就像 jQuery )，noConflict() 方法是为了解决 javascrpit 框架之间符号冲突而定义的方法，它会释放 $ 标识符的控制，这样其他脚本也可以使用这个符号</p>
+<h1 id="jQuery-选择器"><a href="#jQuery-选择器" class="headerlink" title="jQuery 选择器"></a>jQuery 选择器</h1><p><strong>jQuery 元素选择器和属性选择器允许您通过标签名、属性名或内容对 HTML 元素进行选择</strong></p>
+<p>jQuery 元素选择器</p>
+<p>jQuery 使用 CSS 选择器来选取 HTML 元素</p>
+<ul>
+<li>$(this) 当前 HTML 元素</li>
+<li>$(“p”) 选取 <p> 元素</li>
+<li>$(“p.intro”) 选取所有 class=”intro” 的 <p> 元素</li>
+<li>$(“p#demo”) 选取所有 id=”demo” 的 <p> 元素</li>
+<li>$(“div#intro .head”) 选取 id=”intro” 的 <div> 元素中的所有 class=”head” 的元素</li>
+</ul>
+<p>jQuery 属性选择器</p>
+<p>jQuery 使用 XPath 表达式来选择带有给定属性的元素</p>
+<ul>
+<li>$(“[href]”) 选取所有带有href 属性的元素</li>
+<li>$(“[href=’#’]”) 选取所有带有 href 值等于”#” 的元素</li>
+<li>$(“[href!=’#’]”) 选取所有带有 href 值不等于 “#” 的元素</li>
+<li>$(“[href$=’.jpg’]”) 选取所有 href 值以 “.jpg” 结尾的元素</li>
+</ul>
+<p>jQuery CSS 选择器</p>
+<p>jQuery CSS 选择器可用于改变 HTML 元素的 CSS 属性</p>
+<ul>
+<li>把所有 p 元素的背景颜色更改为红色：<code>$(&quot;p&quot;).css(&quot;background-color&quot;,&quot;red&quot;)</code></li>
+</ul>
+<h1 id="jQuery-事件"><a href="#jQuery-事件" class="headerlink" title="jQuery 事件"></a>jQuery 事件</h1><ul>
+<li><p>jQuery 事件处理方法是 jQuery 中的核心函数</p>
+</li>
+<li><p>事件处理程序指的是当 HTML 中发生某些事件时所调用的方法。术语由事件“触发”（或“激发”）经常会被使用</p>
+</li>
+<li><p>例子：按钮的点击事件被触发时会调用一个函数</p>
+<p><code>$(&quot;button&quot;).click(function() {..some code... } )</code></p>
+</li>
+</ul>
+<p><strong>常用事件函数</strong></p>
+<ul>
+<li>$(document).ready(function) 将函数绑定到文档的就绪事件（当文档完成加载时）</li>
+<li>$(selector).click(function) 触发或将函数绑定到被选元素的点击事件</li>
+<li>$(selector).change(function) 触发、或将函数绑定到指定元素的 change 事件</li>
+<li>$(selector).dblclick(function) 触发或将函数绑定到被选元素的双击事件</li>
+<li>$(selector).focus(function) 触发或将函数绑定到被选元素的获得焦点事件</li>
+<li>$(selector).mouseover(function) 触发或将函数绑定到被选元素的鼠标悬停事件</li>
+</ul>
+<h1 id="jQuery-效果"><a href="#jQuery-效果" class="headerlink" title="jQuery 效果"></a>jQuery 效果</h1><p>效果通常绑定在某在事件上，例如通过点击按钮产生隐藏效果</p>
+<p><strong>常见的用于效果的函数</strong></p>
+<p>1.隐藏、显示、切换</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 隐藏 `$(selector).hide(speed,callback)` ： `$(&quot;p&quot;).hide();`- 显示`$(selector).show(speed,callback)` ： `$(&quot;p&quot;).show(1000);`- 切换隐藏/显示`$(selector).toggle(speed,callback)` ： `$(&quot;p&quot;).toggle();`</span><br></pre></td></tr></table></figure>
+<p>speed 和 callback 都是可选参数</p>
+<p>speed 参数规定显示/隐藏的速度，可选值为：”slow”、”fast” 或毫秒值</p>
+<p>callback 参数是显示/隐藏完成后所执行的函数名称</p>
+<p>2.淡入、淡出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 淡入 `$(selector).fadeIn(speed,callback)` ： `$(&quot;#div1&quot;).fadeIn(&quot;slow&quot;);`- 淡出 `$(selector).fadeOut(speed,callback)` ： `$(&quot;#div3&quot;).fadeOut(3000);`- 切换淡入/淡出 `$(selector).fadeToggle(speed,callback)` ： ` $(&quot;#div1&quot;).fadeToggle();`- 渐变为特定透明度 `$(selector).fadeTo(speed,opacity,callback)` ：`$(&quot;#div2&quot;).fadeTo(&quot;slow&quot;,0.4);`</span><br></pre></td></tr></table></figure>
+<p>speed 和 callback 都是可选参数，opacity 为必需参数</p>
+<p>speed 参数规定淡入/淡出的速度，可选值为：”slow”、”fast” 或毫秒值</p>
+<p>callback 参数是显示/隐藏完成后所执行的函数名称</p>
+<p>opacity 参数将淡入淡出效果设置为给定的不透明度（值介于 0 与 1 之间)</p>
+<p>3.滑动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 向下滑动 `$(selector).slideDown(speed,callback)` ： `$(&quot;#panel&quot;).slideDown();`- 向上滑动 `$(selector).slideUp(speed,callback)` : `$(&quot;#panel&quot;).slideUp();`- 切换向上滑动/向下滑动 `slideToggle()` : `$(&quot;#panel&quot;).slideToggle();`</span><br></pre></td></tr></table></figure>
+<p>speed 和 callback 都是可选参数</p>
+<p>speed 参数规定向上滑动/向下滑动的速度，可选值为：”slow”、”fast” 或毫秒值</p>
+<p>callback 参数是向上滑动/向下滑动完成后所执行的函数名称</p>
+<p>4.动画</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 自定义动画 `$(selector).animate(&#123;params&#125;,speed,callback)`</span><br></pre></td></tr></table></figure>
+<p>params 是必需参数， speed 和 callback 是可选参数</p>
+<p>params 参数定义形成动画的 CSS 属性</p>
+<p>speed 参数规定效果的时长，可选值为：”slow”、”fast” 或毫秒值</p>
+<p>callback 参数是动画完成后所执行的函数名称</p>
+<p>注： 默认地，所有 HTML 元素都有一个静态位置，且无法移动，如需对位置进行操作，要记得首先把元素的 CSS position 属性设置为 relative、fixed 或 absolute！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 停止动画 ·`$(selector).stop(stopAll,goToEnd);`</span><br></pre></td></tr></table></figure>
+<p>stopAll 和 goToEnd 都是可选参数</p>
+<p>stopAll 参数规定是否应该清除动画队列。默认是 false，即仅停止活动的动画，允许任何排入队列的动画向后执行</p>
+<p>goToEnd 参数规定是否立即完成当前动画。默认是 false。</p>
+<p>默认地，stop() 会清除在被选元素上指定的当前动画</p>
+<p><strong>实例</strong></p>
+<p>使用绝对值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;div&quot;).animate(&#123; left:&apos;250px&apos;, opacity:&apos;0.5&apos;, height:&apos;150px&apos;, width:&apos;150px&apos; &#125;);</span><br></pre></td></tr></table></figure>
+<p>使用相对值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;button&quot;).click(function()&#123; $(&quot;div&quot;).animate(&#123; left:&apos;250px&apos;, height:&apos;+=150px&apos;, width:&apos;+=150px&apos; &#125;);&#125;);</span><br></pre></td></tr></table></figure>
+<p>使用队列功能 ( 逐一进行 animate 调用 )</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;button&quot;).click(function()&#123; var div=$(&quot;div&quot;); div.animate(&#123;height:&apos;300px&apos;,opacity:&apos;0.4&apos;&#125;,&quot;slow&quot;); div.animate(&#123;width:&apos;300px&apos;,opacity:&apos;0.8&apos;&#125;,&quot;slow&quot;); div.animate(&#123;height:&apos;100px&apos;,opacity:&apos;0.4&apos;&#125;,&quot;slow&quot;); div.animate(&#123;width:&apos;100px&apos;,opacity:&apos;0.8&apos;&#125;,&quot;slow&quot;);&#125;);</span><br></pre></td></tr></table></figure>
+<p>5.方法连接</p>
+<p>允许我们在相同的元素上运行多条 jQuery 命令，一条接着另一条，这样的话，浏览器就不必多次查找相同的元素。如需链接一个动作，您只需简单地把该动作追加到之前的动作上</p>
+<p>例如： 把 css(), slideUp() 和 slideDown() 链接在一起。”p1” 元素首先会变为红色，然后向上滑动，然后向下滑动</p>
+<p><code>$(&quot;#p1&quot;).css(&quot;color&quot;,&quot;red&quot;).slideUp(2000).slideDown(2000);</code></p>
+<h1 id="jQuery-操作-HTML-元素和属性"><a href="#jQuery-操作-HTML-元素和属性" class="headerlink" title="jQuery 操作 HTML 元素和属性"></a>jQuery 操作 HTML 元素和属性</h1><p><strong>对内容操作</strong></p>
+<p>1.获取内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- `$(selector).text();` 设置或返回所选元素的文本内容- `$(selector).html();` 设置或返回所选元素的内容（包括 HTML 标记）- `$(selector).val();` 设置或返回表单字段的值</span><br></pre></td></tr></table></figure>
+<p>2.设置内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- `$(selector).text(string);` 设置所选元素的文本内容- `$(selector).val(string);` 设置所选元素的内容（包括 HTML 标记）- `$(selector).html(string);` 设置表单字段的值</span><br></pre></td></tr></table></figure>
+<p>3.回调函数</p>
+<p>i：被选元素列表中当前元素的下标</p>
+<p>origText：原始（旧的）值</p>
+<p>res：以函数新值返回您希望使用的字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- `$(selector).text(function(i,origText)&#123;return res;&#125;);` 设置或返回所选元素的文本内容- `$(selector).val(function(i,origText)&#123;return res;&#125;);` 设置或返回所选元素的内容（包括 HTML 标记）- `$(selector).html(function(i,origText)&#123;return res;&#125;);` 设置或返回表单字段的值</span><br></pre></td></tr></table></figure>
+<p><strong>对属性操作</strong></p>
+<p>1.获取属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- `$(selector).attr(&quot;attribute&quot;);` 获取指定元素的所选属性</span><br></pre></td></tr></table></figure>
+<p>2.设置属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- `$(selector).attr(&quot;attribute&quot;,&quot;value&quot;);` 设置所选属性的值- `$(selector).attr(&#123;&quot;attribute1&quot;:&quot;value1&quot;, &quot;attribute2&quot;:&quot;value2&quot;&#125;);` 同时设置多个属性的值</span><br></pre></td></tr></table></figure>
+<p>3.attr() 的回调函数</p>
+<p>i ： 被选元素列表中当前元素的下标</p>
+<p>origValue : 原始（旧的）值</p>
+<p>res ： 以函数新值返回您希望使用的字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- `$(selector).attr(&quot;attribute&quot;,function(i,origValue)&#123;return res&#125;);`</span><br></pre></td></tr></table></figure>
+<p><strong>对元素/内容操作</strong></p>
+<p>与前面的 对内容操作 不同的是：上面的三个方法会将原来的值覆盖，而这里的方法是在原值基础上进行修改</p>
+<p>1.添加</p>
+<p>参数可以是多个，如果多个含有 html 的内容，则相当于增加了多个 html 元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- `$(selector).append(&quot;text&quot;);` 在被选元素的结尾插入内容- `$(selector).prepend(&quot;text&quot;);` 在被选元素的开头插入内容- `$(selector).prepend(&quot;text&quot;);` 在被选元素之后插入内容- `$(selector).before(&quot;text&quot;);` 在被选元素之前插入内容</span><br></pre></td></tr></table></figure>
+<p>2.删除</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- `$(selector).remove();` 删除被选元素（及其子元素）- `$(selector).empty();` 从被选元素中删除子元素- `$(selector).remove(selector);` 删除指定选择器的元素</span><br></pre></td></tr></table></figure>
+<p><strong>对 CSS 元素操作</strong></p>
+<p>前三种方法是针对已经写好的样式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- `$(selector).addClass(&quot;className1 className2&quot;);` 向被选元素添加一个或多个类- `$(selector).removeClass(&quot;className1 className2&quot;);` 从被选元素删除一个或多个类- `$(selector).toggleClass(&quot;className&quot;);` 对被选元素进行添加/删除类的切换操作- `$(selector).css();`返回样式属性- `$(selector).css(&quot;attribute&quot;,&quot;value&quot;);`设置单个样式属性- `$(selector).css(&#123;&quot;propertyname&quot;:&quot;value&quot;,&quot;propertyname&quot;:&quot;value&quot;,...&#125;);`设置多个样式属性</span><br></pre></td></tr></table></figure>
+<p><strong>对尺寸操作</strong></p>
+<p>注意参数，中间四种没有没有参数，不能进行设置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- `$(selector).width(&quot;text&quot;);` 设置或返回元素的宽度（不包括内边距、边框或外边距）- `$(selector).height(&quot;text&quot;);` 设置或返回元素的高度（不包括内边距、边框或外边距）- `$(selector).innerWidth();`返回元素的宽度（包括内边距）- `$(selector).innerHeight(&quot;);`返回元素的高度（包括内边距）- `$(selector).outerWidth();`返回元素的宽度（包括内边距和边框）- `$(selector).outerHeight();` 返回元素的高度（包括内边距和边框）- `$(selector).outerWidth(true);`返回元素的宽度（包括内边距、边框和外边距）- `$(selector).outerHeight(true);` 返回元素的高度（包括内边距、边框和外边距）</span><br></pre></td></tr></table></figure>
+<h1 id="jQuery-遍历-DOM"><a href="#jQuery-遍历-DOM" class="headerlink" title="jQuery 遍历 DOM"></a>jQuery 遍历 DOM</h1><p><strong>祖先</strong></p>
+<p>向上遍历 DOM 树</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- `$(selector).parent();` 返回被选元素的直接父元素，该方法只会向上一级对 DOM 树进行遍历- `$(selector).parents();` 返回被选元素的所有祖先元素，它一路向上直到文档的根元素 (&lt;html&gt;)- `$(selector).parents(selector);` 返回经过过滤的所有祖先元素，它一路向上直到文档的根元素 (&lt;html&gt;)- `$(selector).parentsUntil() ;`返回介于两个给定元素之间的所有祖先元素</span><br></pre></td></tr></table></figure>
+<p><strong>祖先</strong></p>
+<p>向下遍历 DOM 树，以查找元素的后代</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- `$(selector).children();` 返回被选元素的所有直接子元素，该方法只会向下一级对 DOM 树进行遍历- `$(selector).children(selector);` 返回被选元素的经过过滤的子元素，该方法只会向下一级对 DOM 树进行遍历- `$(selector).find(&quot;selector&quot;);` 返回被选元素的后代元素，一路向下直到最后一个后代(此方法必须有参数，如果是全部则为 &quot;*&quot; )</span><br></pre></td></tr></table></figure>
+<p><strong>同胞</strong></p>
+<p>DOM 树中遍历元素的同胞元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- `$(selector).siblings(selector);` 返回被选元素的所有同胞元素（selector可选）- `$(selector).next();` 返回被选元素的下一个同胞元素- `$(selector).nextAll();` 返回被选元素的所有跟随的同胞元素- `$(selector).nextUntil(selecotr);` 返回介于两个给定参数之间的所有跟随的同胞元素- prev(), prevAll() 以及 prevUntil() 方法的工作方式与上面的方法类似，只不过方向相反而已：它们返回的是前面的同胞元素（在 DOM 树中沿着同胞元素向后遍历，而不是向前）</span><br></pre></td></tr></table></figure>
+<p><strong>过滤</strong></p>
+<p>允许您基于其在一组元素中的位置来选择一个特定的元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- `$(selector).first();` 返回被选元素的首个元素- `$(selector).last();` 返回被选元素的最后一个元素- `$(selector).eq();` 返回被选元素中带有指定索引号的元素（索引号从 0 开始）- `$(selector).filter(selector);` 不匹配这个标准的元素会被从集合中删除，匹配的元素会被返回- `$(selector).not(selector);` not() 方法与 filter() 相反，返回不匹配标准的所有元素</span><br></pre></td></tr></table></figure>
+<h1 id="jQuery-Ajax"><a href="#jQuery-Ajax" class="headerlink" title="jQuery Ajax"></a>jQuery Ajax</h1><p>AJAX = 异步 JavaScript 和 XML（Asynchronous JavaScript and XML）</p>
+<p>简短地说，在不重载整个网页的情况下，AJAX 通过后台加载数据，并在网页上进行显示</p>
+<p><strong>load 方法</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- `$(selector).load(URL,data,callback);`方法从服务器加载数据，并把返回的数据放入被选元素中</span><br></pre></td></tr></table></figure>
+<p>必需的 URL 参数规定您希望加载的 URL。</p>
+<p>可选的 data 参数规定与请求一同发送的查询字符串键/值对集合。</p>
+<p>可选的 callback 参数是 load() 方法完成后所执行的函数名称</p>
+<p>callback 回调函数</p>
+<p><code>$(selector).load(URL,data,function(responseTxt,statusTxt,xhr){});</code></p>
+<p>responseTxt - 包含调用成功时的结果内容</p>
+<p>statusTXT - 包含调用的状态</p>
+<p>xhr - 包含 XMLHttpRequest 对象</p>
+<p>responseTxt - 包含调用成功时的结果内容</p>
+<p>statusTXT - 包含调用的状态</p>
+<p>xhr - 包含 XMLHttpRequest 对象</p>
+<p><strong>get/post 方法</strong></p>
+<p>必需的 URL 参数规定您希望请求的 URL</p>
+<p>可选的 callback 参数是请求成功后所执行的函数名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- `$.get(URL,callback);`通过 HTTP GET 请求从服务器上请求数据</span><br></pre></td></tr></table></figure>
+<p>GET - 从指定的资源请求数据</p>
+<p>GET 基本上用于从服务器获得（取回）数据。注释：GET 方法可能返回缓存数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- `$.post(URL,data,callback);`通过 HTTP POST 请求从服务器上请求数据</span><br></pre></td></tr></table></figure>
+<p>data 是要提交给服务器的数据，如果数据有多个，使用 json 格式</p>
+<p>POST - 向指定的资源提交要处理的数据</p>
+<p>POST 也可用于从服务器获取数据。不过，POST 方法不会缓存数据，并且常用于连同请求一起发送数据</p>
+<p>回调函数</p>
+<p>data : 存有被请求页面的内容</p>
+<p>status : 存有请求的状态( success/fail )</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">function(data,status)&#123; alert(&quot;Data: &quot; + data + &quot; Status: &quot; + status); &#125;);</span><br></pre></td></tr></table></figure>
+<p>注意： ajax 不能访问本地文件，需要解决跨域访问的问题</p>
+</script></li></ul>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+  
+</div>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Config/" rel="tag"><i class="fa fa-tag"></i> Config</a>
+          
+            <a href="/tags/Programming/" rel="tag"><i class="fa fa-tag"></i> Programming</a>
+          
+            <a href="/tags/JavaScript/" rel="tag"><i class="fa fa-tag"></i> JavaScript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/08/IDEA设置/" rel="prev" title="IDEA设置">
+                IDEA设置 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMjk4NS85NTQ3"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="sven31316">
+            
+              <p class="site-author-name" itemprop="name">sven31316</p>
+              <div class="site-description motion-element" itemprop="description">this is the power of Anonymous.</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/copyer1998" title="GitHub &rarr; https://github.com/copyer1998" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#超全面！这可能是最全面的-jQuery-知识总结"><span class="nav-number">1.</span> <span class="nav-text">超全面！这可能是最全面的 jQuery 知识总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jQuery-简介"><span class="nav-number">2.</span> <span class="nav-text">jQuery 简介</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">true</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="Symbols count total">30k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="Reading time total">27 mins.</span>
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.1.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/three/three.min.js"></script>
+
+  
+  <script src="/lib/three/canvas_lines.min.js"></script>
+
+  
+  <script src="/lib/reading_progress/reading_progress.js"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+  <script src="/js/js.cookie.js?v=7.1.0"></script>
+  <script src="/js/scroll-cookie.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+
+  
+    <script>
+  window.livereOptions = {
+    refer: '2017/02/27/jquery教程/'
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+<script>
+  $('.highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+        if (result) $(this).text('Copied');
+        else $(this).text('Copy failed');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('Copy');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?bd2294fafea3389ee458f1d9be5a2157"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":200,"height":400},"mobile":{"show":true},"log":false});</script></body>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>
+</html>
